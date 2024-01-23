@@ -83,16 +83,45 @@ public class article {
         System.out.println("Prix TTC : " + this.calculerPrixTTC());
     }
 
-    public static void main(String[] args) {
-        // Exemple d'utilisation
-        article article1 = new article();
-        article1.afficherArticle(); // Affiche les informations avec les valeurs par défaut
+   public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-        article article2 = new article("123", "Produit A", 50.0, 20.0);
-        article2.afficherArticle(); // Affiche les informations de l'article2
+        // Saisie pour le premier article
+        System.out.println("Saisir les informations pour le premier article :");
+        System.out.print("Référence : ");
+        String reference1 = scanner.nextLine();
+        System.out.print("Désignation : ");
+        String designation1 = scanner.nextLine();
+        System.out.print("Prix HT : ");
+        double prixHT1 = scanner.nextDouble();
+        System.out.print("Taux TVA : ");
+        double tauxTVA1 = scanner.nextDouble();
 
-        article article3 = new article("456", "Produit B");
-        article3.setPrixHT(75.0); // Modification du prix HT après l'instanciation
-        article3.afficherArticle(); // Affiche les informations de l'article3
+        article article1 = new article(reference1, designation1, prixHT1, tauxTVA1);
+
+        // Affichage des informations du premier article
+        System.out.println("\nInformations du premier article :");
+        article1.afficherArticle();
+
+        // Saisie pour le deuxième article
+        System.out.println("\nSaisir les informations pour le deuxième article :");
+        System.out.print("Référence : ");
+        scanner.nextLine(); // Pour consommer la nouvelle ligne restante
+        String reference2 = scanner.nextLine();
+        System.out.print("Désignation : ");
+        String designation2 = scanner.nextLine();
+        System.out.print("Prix HT : ");
+        double prixHT2 = scanner.nextDouble();
+        System.out.print("Taux TVA : ");
+        double tauxTVA2 = scanner.nextDouble();
+
+        article article2 = new article(reference2, designation2, prixHT2, tauxTVA2);
+
+        // Affichage des informations du deuxième article
+        System.out.println("\nInformations du deuxième article :");
+        article2.afficherArticle();
+
+        // Fermeture du scanner
+        scanner.close();
     }
 }
